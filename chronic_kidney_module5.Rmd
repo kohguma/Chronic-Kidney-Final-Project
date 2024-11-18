@@ -1,0 +1,92 @@
+---
+title: "Predicting Chronic Kidney Disease"
+author: "Michelle Koh"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+## Introduction
+
+This is a multivariate dataset that I had found on UC Irvine's Machine Learning repository, which can be used to predict chronic kidney disease. Chronic kidney disease or CKD is usually identified with kidney damage or an estimated glomerular filtration rate of less than 60 mL/min/1.73 m² - usually consistently lower for 3 or more months. 
+
+This dataset contains 400 observations with 25 different variable, including: age, blood pressure, specific gravity, albumin, sugar, red blood cells, pus cell, pus cell clumps, bacteria, blood glucose random, blood urea, serum creatinine, sodium, potassium, hemoglobin, packed cell volume, white blood cell count, red blood cell count, hypertension, diabetes mellitus, coronary artery disease, appetite, pedal edema, anemia, class. All were collected between a 2 month period. 
+
+Based the results from our chronic kidney disease dataset, hopefully future chronic kidney disease patients will be identified, sooner the better.  
+
+##### Analysis Objectives
+
+- To perform descriptive statistics and identify trends among the different variables and observations.
+- Afterwards, visualize the trends by creating figures that is easier to follow. 
+
+```{r, set-chunk-opts, echo = FALSE}
+library(knitr)
+library(here)
+opts_chunk$set(
+  echo = TRUE, warning = FALSE, message = FALSE
+)
+
+here::i_am(
+  "chronic_kidney_module5.Rmd"
+)
+```
+
+
+
+## Load the data
+
+## Descriptive tables
+##### Here we have two different descriptive tables for better understanding of the dataset
+
+
+The first summary table shows us the prevalence for character variables stratified by CKD and NON-CKD patients in this dataset. The prevalence of certain variables correctly show the difference in abnormality of the collected variables.
+
+
+
+This second table shows the summary table for numeric variables also stratified by CKD or Non-CKD patients. Here, you can see the clear discrepancies in results for those with CKD and those without CKD. 
+
+
+```{r, load-data, echo = TRUE}
+
+ckd_data <- read.csv(
+  file = here::here("data/chronic_kidney_disease_data.csv")
+)
+
+#first table
+characteristics_summary_kidney <- readRDS(
+  here::here("output/characteristics_summary_kidney.rds")
+)
+
+#second table
+numeric_summary <- readRDS(
+  here::here("output/numeric_summary.rds")
+)
+
+
+```
+
+
+
+
+## Graphs for some visualization!!!!
+
+For today, let's look at some simple graphs. Firstly, we'll look at the correlation between all the numerical variables in the ckd dataset by plotting a matrix of the correlations into a heatmap.
+
+Although the heatmap doesn't specifically pinpoint what is happening in this dataset, we can use the results to further investigate and formulate more questions. 
+
+```{r, look-some-graphs}
+
+#correlation heat map
+ckd_plot_corr <- readRDS(
+  here::here("output/ckd_plot_corr.rds")
+)
+
+```
+
+
+
+##### Citations:
+
+Rubini, L., Soundarapandian, P., & Eswaran, P. (2015). Chronic Kidney Disease [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5G020.
+
+Vaidya SR, Aeddula NR. Chronic Kidney Disease. [Updated 2024 Jul 31]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2024 Jan-. Available from: https://www.ncbi.nlm.nih.gov/books/NBK535404/
+
