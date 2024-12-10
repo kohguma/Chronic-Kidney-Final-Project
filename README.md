@@ -23,3 +23,8 @@ Generate the final report In the terminal
 Remove all files generated running make In the terminal
 
 > run `make clean`
+
+To access the Docker image from Dockerhub
+
+> go to https://hub.docker.com/repository/docker/kohguma/ckd_docker/general and run `docker push kohguma/ckd_docker:tagname` on the terminal
+
