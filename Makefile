@@ -20,9 +20,9 @@ install:
 PROJECTFILES = chronic_kidney_module5.Rmd code/01_ckd_output.R code/01_ckd_render_report.R Makefile
 RENVFILES = renv.lock renv/activate.R renv/settings.json
 
-#Rule to build the damn image
+#Rule to build da image
 ckd_docker: Dockerfile $(PROJECTFILES) $(RENVFILES)
-	docker build -t ckd_docker .
+	docker build -t kohguma/ckd_docker .
 	touch $@
 	
 #Rule to make final report.. please istg
